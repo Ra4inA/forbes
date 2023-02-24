@@ -83,3 +83,52 @@ $(window).on("scroll", function(){
         };
     };
 });
+
+
+
+
+
+// BIOFRAGY SPACEMAN ANIMATE
+
+const item = $('#biografy2__animate');
+x = item.offset().top;
+y = item.offset().left;
+
+
+
+setInterval(function(){
+        y = y + 1
+        x = x + Math.sin(y/30) * 2
+        if(y > $(window).width()) {
+            y = 0;
+        }
+        item.offset({ top: x, left: y });
+        // item.css('transform', 'rotate('+y/2+'deg)')
+        console.log(x, y)
+
+},10);
+
+
+// ENDING DOORS CLOSE
+
+
+const leftDoor = $('.ending__left');
+const rightDoor = $('.ending__right');
+// leftDoor.css('transform', 'translateX(0)');
+$(window).scroll(function() {
+    windowBottom = $(window).scrollTop() + $(window).height()
+    sectionOffset = $('.ending').offset().top
+    sectionHeinght = $('.ending').height()
+    // console.log(windowBottom)
+
+    if(windowBottom >= sectionOffset) {
+        
+        ratio = 100 - (windowBottom - sectionOffset) / sectionHeinght * 100;
+        console.log(ratio);
+        leftDoor.css('transform', 'translateX('+ -ratio+'%)');
+        rightDoor.css('transform' , 'translateX('+ ratio+'%)');
+        
+    }
+    // Когда скролл равен оффсету секции - 0%
+    // Когда превышение скролла будет равно высоте секции - 100%
+});

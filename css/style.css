@@ -228,11 +228,14 @@
      line-height: 1.1em;
      background-color: #fff;
      overflow-x: hidden;
-     padding-bottom: 100px;
+     /* padding-bottom: 100px; */
 }
  section, form {
-     overflow: hidden;
+     /* overflow-x: hidden; */
 }
+
+
+
  .container {
      margin: 0 auto;
      padding: 0 25px;
@@ -397,6 +400,7 @@
  .menu__btn > span::after {
      right: -10px;
 }
+
  .block1 > .container {
      display: flex;
 }
@@ -472,6 +476,7 @@
 }
  .additional-materials {
      overflow-x: visible;
+     margin-bottom: 30px;
 }
  .additional-materials__subtitle {
      display: flex;
@@ -491,11 +496,12 @@
      position: relative;
 }
  .slick-slider{
+
      border-radius: 5px;
      cursor: pointer;
      max-width: 650px;
      width: 100%;
-     height: auto;
+     height: 410px;
      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
  img[src*='photo1'] {
@@ -603,6 +609,168 @@
 }
  .human__interview > span {
      color: rgb(85, 184, 252);
+}
+
+
+/* BIOGRAFY */
+
+.biografy1:before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-image: url('../img/photo1.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(80%);
+}
+
+.biografy1:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+/* BIOGRAFY */
+.biografy {
+  min-height: 100vh;
+  /* overflow: hidden; */
+}
+
+
+
+.biografy__item {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.biografy__item .container{
+
+  min-height: 100vh;
+  display: flex;
+
+  padding-left: 105px;
+
+  align-items: center;
+}
+
+.biografy__item:last-child {
+  margin-bottom: 0;
+}
+.biografy1 {
+
+}
+.biografy-imgs {
+  flex-basis: 50%;
+
+}
+.biografy__img-wrapper {
+}
+.biografy-content {
+  flex-basis: 50%;
+  margin-left: 20px;
+}
+.human__interview {
+}
+
+.biografy__interview {
+  padding: 10px;
+  border: 2px #eee solid;
+  border-radius: 20px;
+  background-color: #eee;
+}
+.top {
+}
+._animate {
+}
+._animate-left {
+}
+._anim-no-hide {
+}
+.biografy__2 {
+  background-color: #000;
+}
+
+.biografy__2 .biografy-content {
+  order: -1;
+}
+
+#biografy2__animate{
+  width: 100px;
+  height: 300px;
+  background: transparent url('../img/spaceman.png') no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.biografy__3 {
+  background-color: #000;
+}
+
+#forbes-owner {
+
+}
+
+/* ENDING */
+
+.ending {
+    width: 100cw;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+
+    background: #000 url('../img/photo1.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
+.ending__left,
+.ending__right {
+    content: "";
+    width: 50vw;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+}
+
+.ending__left:after,
+.ending__right:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/door.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.ending__right:after {
+    transform: scale(1, -1) rotate(180deg);
+}
+.ending__left {
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+}
+.ending__right {
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
 }
 
 
@@ -752,12 +920,12 @@
 
     /* SLIDER */
      .slick-slider {
-         height: 100%;
+         height: auto;
          max-height: 300px;
     }
      .slick-slide {
-         height: 100%;
-         max-height: 300px;
+        height: auto;
+        max-height: 300px;
     }
 }
  @media screen and (max-width: 400px){
