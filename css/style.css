@@ -647,19 +647,40 @@
   /* overflow: hidden; */
 }
 
+.biografy1__sun {
+    position: fixed;
+    left: 0;
+    transform: translateX(-100%);
 
+    top: 50px;
+    width: 200px;
+    height: 200px;
+    background: transparent url('../img/sun.png') no-repeat;
+    background-size: contain;
+}
 
 .biografy__item {
   position: relative;
   padding-bottom: 30px;
 }
 
+.biografy-item__title {
+    color: #fff;   
+    text-align: center;
+    padding-top: 10px; 
+}
+
+.title_large {
+    font-size: 50px;
+}
+
+
 .biografy__item .container{
 
   min-height: 100vh;
   display: flex;
 
-  padding-left: 105px;
+  /* padding-left: 105px; */
 
   align-items: center;
 }
@@ -672,9 +693,16 @@
 }
 .biografy-imgs {
   flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 .biografy__img-wrapper {
+}
+
+.biografy__img {
+    object-fit: cover;
 }
 .biografy-content {
   flex-basis: 50%;
@@ -699,7 +727,36 @@
 }
 .biografy__2 {
   background-color: #000;
+  background-image: url('../img/stars.png');
+  background-attachment: fixed;
+  position: relative;
 }
+
+.biografy__2::before {
+    content: '';
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+/* .biografy__2::before {
+    content: '';
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+ */
+
 
 .biografy__2 .biografy-content {
   order: -1;
@@ -707,19 +764,56 @@
 
 #biografy2__animate{
   width: 100px;
-  height: 300px;
-  background: transparent url('../img/spaceman.png') no-repeat;
-  background-size: contain;
+  height: 100px;
+
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 60%;
+}
+
+#biografy2__animate span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent url('../img/spaceman.png') no-repeat;
+    background-size: contain;
 }
 
 .biografy__3 {
   background-color: #000;
+  padding: 200px 0;
+  /* background-image: url('../img/insider-bg.jpg'); */
 }
 
-#forbes-owner {
+.biografy__img-wrapper_bordered {
+    border-radius: 50%;
+    border: 5px #fff solid;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+
+    -webkit-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
+-moz-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
+box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
+}
+
+.biografy-img__signature {
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.forbes-owner:after {
+    content: 'Отныне Тимофей Москаленко(OVERSIDE) является прямым владельцем и главой Forbes.';
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+}
+
+
+.forbes-owner_active {
 
 }
 

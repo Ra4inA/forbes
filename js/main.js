@@ -85,13 +85,37 @@ $(window).on("scroll", function(){
 });
 
 
+// BIOGRAGY SUN ANIMATE
 
+const sun = $('.biografy1__sun')
+$(window).scroll(function() {
+    windowBottom = $(window).scrollTop() + $(window).height()
+    sectionOffset = $('.biografy1').offset().top
+    sectionHeinght = $('.biografy1').height()
+    // console.log(windowBottom)
+
+    if(windowBottom >= sectionOffset) {
+        
+        ratio = 100 - (windowBottom - sectionOffset) / sectionHeinght * 100;
+        console.log(ratio);
+
+
+        console.log(ratio)
+        sun.css('transform', 'translateX('+ -ratio+'vw)');
+        
+    }
+    // Math.sin(ratio*1.8)*10
+    // Когда скролл равен оффсету секции - 0%
+    // Когда превышение скролла будет равно высоте секции - 100%
+});
 
 
 // BIOFRAGY SPACEMAN ANIMATE
 
 const item = $('#biografy2__animate');
+// const itemInner = $('#biografy2__animate span');
 x = item.offset().top;
+x1 = x
 y = item.offset().left;
 
 
@@ -101,10 +125,16 @@ setInterval(function(){
         x = x + Math.sin(y/30) * 2
         if(y > $(window).width()) {
             y = 0;
+            x = x1;
         }
+        
         item.offset({ top: x, left: y });
-        // item.css('transform', 'rotate('+y/2+'deg)')
-        console.log(x, y)
+        item.css('transform', 'rotate( -60deg)')
+
+
+
+        // itemInner.css('transform', 'rotate(' + (1 + Math.sin(y/30) * 30)    +'deg)')
+        // console.log(x, y)
 
 },10);
 
