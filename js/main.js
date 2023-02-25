@@ -96,11 +96,11 @@ $(window).scroll(function() {
 
     if(windowBottom >= sectionOffset) {
         
-        ratio = 100 - (windowBottom - sectionOffset) / sectionHeinght * 100;
-        console.log(ratio);
+        ratio = 80 - (windowBottom - sectionOffset) / sectionHeinght * 100;
+        // console.log(ratio);
 
 
-        console.log(ratio)
+        // console.log(ratio)
         sun.css('transform', 'translateX('+ -ratio+'vw)');
         
     }
@@ -138,6 +138,30 @@ setInterval(function(){
 
 },10);
 
+// Biografy3 ANIMATE
+
+
+const bg = $('.biografy3__bg')
+$(window).scroll(function() {
+    windowBottom = $(window).scrollTop() + $(window).height()
+    sectionOffset = $('.biografy__3').offset().top
+    sectionHeinght = $('.biografy__3').height()
+    // console.log(windowBottom)
+
+    if(windowBottom >= sectionOffset) {
+        
+        ratio = (windowBottom - sectionOffset) / sectionHeinght;
+        // console.log(ratio);
+
+
+        bg.css('background-color', 'rgba(0,0,0,'+ratio+')');
+        
+    }
+    // Math.sin(ratio*1.8)*10
+    // Когда скролл равен оффсету секции - 0%
+    // Когда превышение скролла будет равно высоте секции - 100%
+});
+
 
 // ENDING DOORS CLOSE
 
@@ -154,7 +178,7 @@ $(window).scroll(function() {
     if(windowBottom >= sectionOffset) {
         
         ratio = 100 - (windowBottom - sectionOffset) / sectionHeinght * 100;
-        console.log(ratio);
+        // console.log(ratio);
         leftDoor.css('transform', 'translateX('+ -ratio+'%)');
         rightDoor.css('transform' , 'translateX('+ ratio+'%)');
         
@@ -162,3 +186,23 @@ $(window).scroll(function() {
     // Когда скролл равен оффсету секции - 0%
     // Когда превышение скролла будет равно высоте секции - 100%
 });
+
+
+
+ownerX = $('.forbes-owner').offset().top
+ownerY = $('.forbes-owner').offset().left
+$('body').prepend('<div class="forbes-owner_fixed"></div>')
+// $('#forbes-owner_fixed').offset({left: ownerY});
+$('.forbes-owner_fixed').text($('.forbes-owner').text())
+
+$(window).scroll(function() {
+    if(ownerX < $(window).scrollTop() + $(window).height()/2) {
+        $('.forbes-owner').addClass('forbes-owner_active');
+        $('.forbes-owner_fixed').addClass('forbes-owner__fixed_active');
+        
+    } else {
+        $('.forbes-owner').removeClass('forbes-owner_active');
+        $('.forbes-owner_fixed').removeClass('forbes-owner__fixed_active');
+    }
+});
+

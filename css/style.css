@@ -665,6 +665,8 @@
 }
 
 .biografy-item__title {
+    position: relative;
+    z-index: 1;
     color: #fff;   
     text-align: center;
     padding-top: 10px; 
@@ -707,7 +709,25 @@
 .biografy-content {
   flex-basis: 50%;
   margin-left: 20px;
+  position: relative;
 }
+
+.insider::before {
+    content: '';
+    background-image: url('../img/quotes.png');
+    background-color: transparent;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+
+    transform: rotate(-30deg);
+    position: absolute;
+    right: -90px;
+    top: -100px;
+    opacity: 0.8;
+  }
+
+
 .human__interview {
 }
 
@@ -780,9 +800,37 @@
 }
 
 .biografy__3 {
-  background-color: #000;
+    position: relative;
+  background-color: transparent;
   padding: 200px 0;
-  /* background-image: url('../img/insider-bg.jpg'); */
+  pointer-events: none;
+  
+}
+
+.biografy3__bg {
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    background-image: url('../img/insider-bg.png');
+    background-size: cover;
+
+    pointer-events: none;
+}
+.biografy__3::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); */
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(249,249,249,0) 40%, rgba(255,255,255,0) 50%, rgba(255,250,250,0) 60%, rgba(0,0,0,1) 100%);
+    z-index: 0;
 }
 
 .biografy__img-wrapper_bordered {
@@ -794,27 +842,61 @@
 
 
     -webkit-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
--moz-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
+    -moz-box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
+    box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
 }
 
 .biografy-img__signature {
     color: #fff;
     text-align: center;
-    padding-top: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #000;
+    border-radius: 20px;
 }
-
+/* 
 .forbes-owner:after {
     content: 'Отныне Тимофей Москаленко(OVERSIDE) является прямым владельцем и главой Forbes.';
     position: fixed;
     left: 50%;
     top: 50%;
 
+} */
+
+.forbes-owner {
+    transition: all .4s ease;
 }
 
+.forbes-owner_fixed {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: all .4s ease;
+
+    opacity: 0;
+    pointer-events: none;
+    line-height: 1em;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #000;
+    color: #fff;
+    font-size: 30px;
+    max-width: 500px;
+    text-align: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.forbes-owner_fixed:first-letter {
+    text-transform: uppercase;
+}
 
 .forbes-owner_active {
-
+    color: transparent !important;
+}
+.forbes-owner__fixed_active {
+    opacity: 1;
 }
 
 /* ENDING */
@@ -836,6 +918,7 @@ box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
     height: 100%;
     background-color: #fff;
     position: absolute;
+    z-index: 9;
 }
 
 .ending__left:after,
@@ -850,6 +933,7 @@ box-shadow: 0px 0px 35px 19px rgba(255, 255, 255, 0.23);
     position: absolute;
     top: 0;
     left: 0;
+    
 }
 
 
